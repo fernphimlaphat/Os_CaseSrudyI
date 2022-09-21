@@ -10,11 +10,11 @@ namespace Problem01
 {
     class Program
     {
-        static int myThread = 8;
-        static int numData = 1000000000;
-        static byte[] Data_Global = new byte[numData];
+        static int myThread = 8; //กำหนดจำนวน Thread ที่ใช้งาน
+        static int numData = 1000000000; //กำหนดตัวแปรให้มีค่าเท่ากับ 1000000
+        static byte[] Data_Global = new byte[numData]; 
         static long Sum_Global = 0;
-        static int G_index = numData/myThread;
+        static int G_index = numData/myThread;  //กำหนด index มีขนาดเท่ากับ จำนวน numData / จำนวน thread
         
         static int ReadData()
         {
@@ -41,9 +41,9 @@ namespace Problem01
         
         static void sum(object p)
         {
-            int z = (int) p;
-            int min = G_index*z;
-            int max = G_index*(z+1)-1;
+            int z = (int) p; 
+            int min = G_index*z; //กำหนดช่วงต่ำสุด
+            int max = G_index*(z+1)-1; //กำหนดช่วงสูงสุด
             long sum_i = 0;
             for (int index = min; index <= max; index++)
             {
@@ -65,7 +65,7 @@ namespace Problem01
                 }
                 Data_Global[index] = 0;  
             }
-            Sum_Global += sum_i;
+            Sum_Global += sum_i; 
         }
         
         static void Main(string[] args)
@@ -90,7 +90,7 @@ namespace Problem01
             sw.Start();
             for(i = 0;i < myThread;i++){
                 myth[i] = new Thread(sum);
-                myth[i].Priority = ThreadPriority.Highest;
+                myth[i].Priority = ThreadPriority.Highest; //เรียงลำดับความสำคัญของการทำงานของ Thead
                 myth[i].Start(i);
             }
             for(i = 0;i < myThread;i++)

@@ -9,7 +9,7 @@ namespace Problem01
 {
     class Program
     {
-        static byte[] Data_Global = new byte[1000000000];
+        static byte[] Data_Global = new byte[1000000000]; 
         static int myThread = 12, z = 0; //กำหนดจำนวน Thread ที่ใช้งาน
         static long Sum_Global = 0;
         static long[] Sum = new long[myThread]; //สร้าง sum แบบarray

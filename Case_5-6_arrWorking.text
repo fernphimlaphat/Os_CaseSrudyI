@@ -42,8 +42,8 @@ namespace Problem01
         }
         static void sum(object p) //ประกาศ p ให้เป็น perameter ใน function sum ให้ function สามารถรับค่ามาใช้ได้
         {
-            int z = Convert.ToInt32(p); //
-            G_index[z] = z;
+            int z = Convert.ToInt32(p); //ประกาศ z เพื่อให้เก็บค่า perameter p ในรูปแบบ ของ int
+            G_index[z] = z; //ให้ G_index เริ่มต้น ชี้ตำแหน่งที่ z และเก็บค่า z
             for (j[z] = 0; j[z] < 1000000000/myThread; j[z]++)
             {
                 if (Data_Global[G_index[z]] % 2 == 0)
@@ -63,7 +63,7 @@ namespace Problem01
                     Sum[z] += (Data_Global[G_index[z]] / 3);
                 }
                 Data_Global[G_index[z]] = 0;
-                G_index[z]+=myThread;   
+                G_index[z]+=myThread;   //
             }
             
         }

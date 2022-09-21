@@ -10,9 +10,9 @@ namespace Problem01
     class Program
     {
         static byte[] Data_Global = new byte[1000000000];
-        static int myThread = 2, z = 0; //ใช้ได้แค่ 5 ,10
+        static int myThread = 8, z = 0; 
         static long Sum_Global = 0;
-        static long sum1,sum2 = 0;
+        static long sum1,sum2,sum3,sum4,sum5,sum6,sum7,sum8 = 0;
         static int j;
         
 
@@ -91,7 +91,161 @@ namespace Problem01
                 G_index += myThread ;
             }
         }
+
+        static void SUM_3()
+        {
+            int G_index = 2;
+            for (int i = 0; i < 1000000000/myThread; i++)
+            {
+                if (Data_Global[G_index] % 2 == 0)
+                {
+                    sum3 -= Data_Global[G_index];
+                }
+                else if (Data_Global[G_index] % 3 == 0)
+                {
+                    sum3 += (Data_Global[G_index] * 2);
+                }
+                else if (Data_Global[G_index] % 5 == 0)
+                {
+                    sum3 += (Data_Global[G_index] / 2);
+                }
+                else if (Data_Global[G_index] % 7 == 0)
+                {
+                    sum3 += (Data_Global[G_index] / 3);
+                }
+                Data_Global[G_index] = 0;
+                G_index += myThread ;
+            }
+        }
         
+        static void SUM_4()
+        {
+            int G_index = 3;
+            for (int i = 0; i < 1000000000/myThread; i++)
+            {
+                if (Data_Global[G_index] % 2 == 0)
+                {
+                    sum4 -= Data_Global[G_index];
+                }
+                else if (Data_Global[G_index] % 3 == 0)
+                {
+                    sum4 += (Data_Global[G_index] * 2);
+                }
+                else if (Data_Global[G_index] % 5 == 0)
+                {
+                    sum4 += (Data_Global[G_index] / 2);
+                }
+                else if (Data_Global[G_index] % 7 == 0)
+                {
+                    sum4 += (Data_Global[G_index] / 3);
+                }
+                Data_Global[G_index] = 0;
+                G_index += myThread ;
+            }
+        }
+
+        static void SUM_5()
+        {
+            int G_index = 4;
+            for (int i = 0; i < 1000000000/myThread; i++)
+            {
+                if (Data_Global[G_index] % 2 == 0)
+                {
+                    sum5 -= Data_Global[G_index];
+                }
+                else if (Data_Global[G_index] % 3 == 0)
+                {
+                    sum5 += (Data_Global[G_index] * 2);
+                }
+                else if (Data_Global[G_index] % 5 == 0)
+                {
+                    sum5 += (Data_Global[G_index] / 2);
+                }
+                else if (Data_Global[G_index] % 7 == 0)
+                {
+                    sum5 += (Data_Global[G_index] / 3);
+                }
+                Data_Global[G_index] = 0;
+                G_index += myThread ;
+            }
+        }
+
+        static void SUM_6()
+        {
+            int G_index = 5;
+            for (int i = 0; i < 1000000000/myThread; i++)
+            {
+                if (Data_Global[G_index] % 2 == 0)
+                {
+                    sum6 -= Data_Global[G_index];
+                }
+                else if (Data_Global[G_index] % 3 == 0)
+                {
+                    sum6 += (Data_Global[G_index] * 2);
+                }
+                else if (Data_Global[G_index] % 5 == 0)
+                {
+                    sum6 += (Data_Global[G_index] / 2);
+                }
+                else if (Data_Global[G_index] % 7 == 0)
+                {
+                    sum6 += (Data_Global[G_index] / 3);
+                }
+                Data_Global[G_index] = 0;
+                G_index += myThread ;
+            }
+        }
+
+        static void SUM_7()
+        {
+            int G_index = 6;
+            for (int i = 0; i < 1000000000/myThread; i++)
+            {
+                if (Data_Global[G_index] % 2 == 0)
+                {
+                    sum7 -= Data_Global[G_index];
+                }
+                else if (Data_Global[G_index] % 3 == 0)
+                {
+                    sum7 += (Data_Global[G_index] * 2);
+                }
+                else if (Data_Global[G_index] % 5 == 0)
+                {
+                    sum7 += (Data_Global[G_index] / 2);
+                }
+                else if (Data_Global[G_index] % 7 == 0)
+                {
+                    sum7 += (Data_Global[G_index] / 3);
+                }
+                Data_Global[G_index] = 0;
+                G_index += myThread ;
+            }
+        }
+        static void SUM_8()
+        {
+            int G_index = 7;
+            for (int i = 0; i < 1000000000/myThread; i++)
+            {
+                if (Data_Global[G_index] % 2 == 0)
+                {
+                    sum8 -= Data_Global[G_index];
+                }
+                else if (Data_Global[G_index] % 3 == 0)
+                {
+                    sum8 += (Data_Global[G_index] * 2);
+                }
+                else if (Data_Global[G_index] % 5 == 0)
+                {
+                    sum8 += (Data_Global[G_index] / 2);
+                }
+                else if (Data_Global[G_index] % 7 == 0)
+                {
+                    sum8 += (Data_Global[G_index] / 3);
+                }
+                Data_Global[G_index] = 0;
+                G_index += myThread ;
+            }
+        }
         static void Main(string[] args)
         {
             Stopwatch sw = new Stopwatch();
@@ -99,6 +253,13 @@ namespace Problem01
             Thread[] myth = new Thread[myThread];
                 myth[0] = new Thread(SUM_1);
                 myth[1] = new Thread(SUM_2);
+                myth[2] = new Thread(SUM_3);
+                myth[3] = new Thread(SUM_4);
+                myth[4] = new Thread(SUM_5);
+                myth[5] = new Thread(SUM_6);
+                myth[6] = new Thread(SUM_7);
+                myth[7] = new Thread(SUM_8);
+                
 
             /* Read data from file */
             Console.Write("Data read...");
@@ -117,15 +278,27 @@ namespace Problem01
             sw.Start();
                 myth[0].Start();
                 myth[1].Start();
+                myth[2].Start();
+                myth[3].Start();
+                myth[4].Start();
+                myth[5].Start();
+                myth[6].Start();
+                myth[7].Start();
                 
                 myth[0].Join();
                 myth[1].Join();
+                myth[2].Join();
+                myth[3].Join();
+                myth[4].Join();
+                myth[5].Join();
+                myth[6].Join();
+                myth[7].Join();
 
             sw.Stop();
             Console.WriteLine("Done.");
 
             /* Result */
-            Sum_Global = sum1+sum2;
+            Sum_Global = sum1+sum2+sum3+sum4+sum5+sum6+sum7+sum8;
             
             Console.WriteLine("Summation result: {0}", Sum_Global);
             Console.WriteLine("Time used: " + sw.ElapsedMilliseconds.ToString() + "ms");

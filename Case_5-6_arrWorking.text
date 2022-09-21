@@ -10,7 +10,7 @@ namespace Problem01
     class Program
     {
         static byte[] Data_Global = new byte[1000000000];
-        static int myThread = 10, z = 0; //ใช้ได้แค่ 5 ,10
+        static int myThread = 12, z = 0; //ใช้ได้แค่ 5 ,10
         static long Sum_Global = 0;
         static long[] Sum = new long[myThread];
         static int[] G_index = new int[myThread],j = new int[myThread];

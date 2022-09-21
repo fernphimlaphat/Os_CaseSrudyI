@@ -10,10 +10,11 @@ namespace Problem01
     class Program
     {
         static byte[] Data_Global = new byte[1000000000];
-        static int myThread = 12, z = 0; //ใช้ได้แค่ 5 ,10
+        static int myThread = 12, z = 0; //กำหนดจำนวน Thread ที่ใช้งาน
         static long Sum_Global = 0;
-        static long[] Sum = new long[myThread];
-        static int[] G_index = new int[myThread],j = new int[myThread];
+        static long[] Sum = new long[myThread]; //สร้าง sum แบบarray
+        static int[] G_index = new int[myThread],j = new int[myThread]; 
+        /*กำหนด index แบบarray ให้มีจำนวนเท่ากับจำนวน thread , j คือตัวแปรสำหรับการวนลูปให้มีจำนวน array เท่ากับจำนวน Thead */
         
 
 
@@ -39,9 +40,9 @@ namespace Problem01
 
             return returnData;
         }
-        static void sum(object p)
+        static void sum(object p) //ประกาศ p ให้เป็น perameter ใน function sum ให้ function สามารถรับค่ามาใช้ได้
         {
-            int z = Convert.ToInt32(p);
+            int z = Convert.ToInt32(p); //
             G_index[z] = z;
             for (j[z] = 0; j[z] < 1000000000/myThread; j[z]++)
             {

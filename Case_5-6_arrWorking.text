@@ -63,7 +63,7 @@ namespace Problem01
                     Sum[z] += (Data_Global[G_index[z]] / 3);
                 }
                 Data_Global[G_index[z]] = 0;
-                G_index[z]+=myThread;   //
+                G_index[z]+=myThread;   //ให้ G_index เพิ่มขึ้นตามจำนวนของ Thread ที่เรากำหนด
             }
             
         }

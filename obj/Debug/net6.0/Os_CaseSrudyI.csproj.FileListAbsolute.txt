@@ -1,0 +1,15 @@
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\bin\Debug\net6.0\Os_CaseSrudyI.exe
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\bin\Debug\net6.0\Os_CaseSrudyI.deps.json
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\bin\Debug\net6.0\Os_CaseSrudyI.runtimeconfig.json
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\bin\Debug\net6.0\Os_CaseSrudyI.dll
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\bin\Debug\net6.0\Os_CaseSrudyI.pdb
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\Os_CaseSrudyI.csproj.AssemblyReference.cache
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\Os_CaseSrudyI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\Os_CaseSrudyI.AssemblyInfoInputs.cache
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\Os_CaseSrudyI.AssemblyInfo.cs
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\Os_CaseSrudyI.csproj.CoreCompileInputs.cache
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\Os_CaseSrudyI.dll
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\refint\Os_CaseSrudyI.dll
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\Os_CaseSrudyI.pdb
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\Os_CaseSrudyI.genruntimeconfig.cache
+C:\Users\fernp\OneDrive\Desktop\Os_caseSrudyI\Os_CaseSrudyI\obj\Debug\net6.0\ref\Os_CaseSrudyI.dll

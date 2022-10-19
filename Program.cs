@@ -1,106 +1,58 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
-using System.Threading.Tasks;
-
-namespace Problem01
+namespace ex5
 {
     class Program
     {
-        static int myThread = 10;
-        static int numData = 1000000000;
-        static byte[] Data_Global = new byte[numData];
-        static long Sum_Global = 0;
-        static int G_index = numData/myThread;
-        
-        static int ReadData()
+        private static string x = "";
+        private static int exitflag = 0;
+        private static object _Lock = new object();
+        static void ThReadX()
         {
-            int returnData = 0;
-            FileStream fs = new FileStream("Problem01.dat", FileMode.Open);
-            BinaryFormatter bf = new BinaryFormatter();
-
-            try 
+            String i = Thread.CurrentThread.Name;
+            lock (_Lock)//
             {
-                Data_Global = (byte[]) bf.Deserialize(fs);
-            }
-            catch (SerializationException se)
-            {
-                Console.WriteLine("Read Failed:" + se.Message);
-                returnData = 1;
-            }
-            finally
-            {
-                fs.Close();
-            }
-
-            return returnData;
-        }
-        
-        static void sum(object p)
+                while (exitflag == 0)
+                {
+                    Monitor.Wait(_Lock);//
+                    if (exitflag == 1) break;//
+                    Console.WriteLine("***Thread {0} : X = {1}***", i, x);
+                }
+                Console.WriteLine("---Thread {0} exit---", i);
+            }}
+        static void ThWriteX()
         {
-            int z = (int) p;
-            int min = G_index*z;
-            int max = G_index*(z+1)-1;
-            long sum_i = 0;
-            for (int index = min; index <= max; index++)
+            string xx;
+            while (exitflag == 0)
             {
-                if (Data_Global[index] % 2 == 0)
+                lock (_Lock)//
                 {
-                    sum_i -= Data_Global[index];
-                }
-                else if (Data_Global[index] % 3 == 0)
-                {
-                    sum_i += (Data_Global[index]*2);
-                }
-                else if (Data_Global[index] % 5 == 0)
-                {
-                    sum_i += (Data_Global[index] / 2);
-                }
-                else if (Data_Global[index] %7 == 0)
-                {
-                    sum_i += (Data_Global[index] / 3);
-                }
-                Data_Global[index] = 0;  
-            }
-            Sum_Global += sum_i;
-        }
-        
+                    Monitor.Pulse(_Lock);//
+
+                    Console.Write("Input: ");
+                    xx = Console.ReadLine();
+                    if (xx == "exit")
+                    {
+                        exitflag = 1;
+                        Monitor.PulseAll(_Lock);
+                    }
+                    else
+                    {x = xx;}
+
+
+                }}}
         static void Main(string[] args)
         {
-            Stopwatch sw = new Stopwatch();
-            int i, y;
-            Thread[] myth = new Thread[myThread];
-            /* Read data from file */
-            Console.Write("Data read...");
-            y = ReadData();
-            if (y == 0)
-            {
-                Console.WriteLine("Complete.");
-            }
-            else
-            {
-                Console.WriteLine("Read Failed!");
-            }
-
-            /* Start */
-            Console.Write("\n\nWorking...");
-            sw.Start();
-            for(i = 0;i < myThread;i++){
-                myth[i] = new Thread(sum);
-                myth[i].Priority = ThreadPriority.Highest;
-                myth[i].Start(i);
-            }
-            for(i = 0;i < myThread;i++)
-                myth[i].Join();
-            sw.Stop();
-            Console.WriteLine("Done.");
-
-            /* Result */
-            Console.WriteLine("Summation result: {0}", Sum_Global);
-            Console.WriteLine("Time used: " + sw.ElapsedMilliseconds.ToString() + "ms");
-        }
-    }
+            Thread A = new Thread(new ThreadStart(ThWriteX));
+            Thread B = new Thread(new ThreadStart(ThReadX));
+            Thread C = new Thread(new ThreadStart(ThReadX));
+            Thread D = new Thread(new ThreadStart(ThReadX));
+            B.Name = "1";
+            C.Name = "2";
+            D.Name = "3";
+            A.Start();
+            B.Start();
+            C.Start();
+            D.Start();
+        }}
 }
